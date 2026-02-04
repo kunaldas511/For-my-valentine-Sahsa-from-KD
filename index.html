@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #ffe6e6;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        #container {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            z-index: 10;
+        }
+
+        h1 { color: #d63384; }
+
+        .btn-container {
+            margin-top: 20px;
+            position: relative;
+            height: 100px;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        #yesBtn {
+            background-color: #ff4d6d;
+            color: white;
+        }
+
+        #noBtn {
+            background-color: #6c757d;
+            color: white;
+            position: absolute;
+            transition: 0.3s ease;
+        }
+
+        .hidden { display: none; }
+
+        img {
+            width: 250px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        h2 { color: #ff4d6d; }
+    </style>
+</head>
+<body>
+
+    <div id="container">
+        <div id="quiz">
+            <h1>Will you be my Valentine? 💖</h1>
+            <div class="btn-container">
+                <button id="yesBtn" onclick="showLove()">Yes</button>
+                <button id="noBtn" onmouseover="moveButton()">No</button>
+            </div>
+        </div>
+
+        <div id="result" class="hidden">
+            <h2>I Love You! ❤️</h2>
+            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHIyeW9naGZiaXp6Z3ZueG51Z3ZueG51Z3ZueG51Z3ZueG51Z3ZueG51Z3ZueG51JnB2PTE/KztT2c4u8mYYUiMKdJ/giphy.gif" alt="Funny Kiss GIF">
+            <p><strong>Thank You, let's meet on 14th Feb!</strong></p>
+        </div>
+    </div>
+
+    <script>
+        function moveButton() {
+            const btn = document.getElementById('noBtn');
+            // Calculate random positions within the viewport
+            const x = Math.random() * (window.innerWidth - btn.offsetWidth);
+            const y = Math.random() * (window.innerHeight - btn.offsetHeight);
+            
+            btn.style.left = x + 'px';
+            btn.style.top = y + 'px';
+        }
+
+        function showLove() {
+            document.getElementById('quiz').classList.add('hidden');
+            document.getElementById('result').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
